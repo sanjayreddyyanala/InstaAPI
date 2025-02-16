@@ -15,8 +15,22 @@
         <p><%= post.caption %></p>
     </div>
 
-    <form method="get" action="/posts">
-        <button class="btn">all posts</button>
-    </form>
+   <div style="display: flex;">
+        <form action="/posts/<%= post.id %>/edit">
+            <button class="btn">edit</button>
+        </form>
+        <form method="get" action="/posts">
+            <button class="btn">all posts</button>
+        </form>
+        <form action="/posts/<%= post.id %>/?_method=DELETE" method="post" onsubmit="return confirmDelete()">
+            <button class="btn deletebtn">delete post</button>
+        </form>
+   </div>
+
+   <script>
+        function confirmDelete() {
+            return confirm("Are you sure want to delete this post?")
+        }
+    </script>
 </body>
 </html>

@@ -27,12 +27,18 @@
                     <form method="get" action="/posts/<%=post.id%>/edit">
                         <button class="btn">edit post</button>
                     </form>
-                    <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+                    <form method="post" action="/posts/<%=post.id%>?_method=DELETE" onsubmit="return confirmDelete()">
                         <button class="btn deletebtn">delete post</button>
                     </form>
                 </div>
             </div>
         <% } %>
     </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure want to delete this post?");
+        }
+    </script>
 </body>
 </html>

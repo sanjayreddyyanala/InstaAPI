@@ -7,15 +7,26 @@
     <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>
-    <!-- form to edit post -->
     <h1>Editing post</h1>
     <p>post id : <%= post.id %></p>
-    <form method="post" action="/posts/<%=post.id%>?_method=PATCH">
-        <input type="text" name="imagelink" placeholder="image file name">
+    <form method="post" action="/posts/<%=post.id%>?_method=PATCH" enctype="multipart/form-data" onsubmit="return confirmEdit()">
+        <input type="file" name="image">
         <br><br>
         <textarea name="caption"> <%= post.caption %> </textarea>
         <br><br>
         <button class="btn">edit post</button>
     </form>
+    <form action="/posts/<%= post.id %>/?_method=DELETE" method="post" onsubmit="return confirmDelete()">
+        <button class="btn deletebtn">delete post</button>
+    </form>
+
+    <script>
+        function confirmEdit() {
+            return confirm("Are you sure want to make changes to the post?");
+        }
+        function confirmDelete() {
+            return confirm("Are you sure want to delete this post?")
+        }
+    </script>
 </body>
 </html>

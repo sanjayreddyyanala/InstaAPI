@@ -5,17 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New post</title>
     <link rel="stylesheet" href="/styles/index.css">
-</head>
-<body>
-    <!-- form for new post -->
-    <form method="post" action="/posts/new">
+</head><form method="post" action="/posts/new" enctype="multipart/form-data">
         <input type="text" placeholder="username" name="username">
         <br><br>
+<body>
+    <!-- form for new post -->
+    <form method="post" action="/posts/new" enctype="multipart/form-data">
         <input type="text" placeholder="image file name" name="imagelink">
+        <input type="file" name="image" accept="image/*" required>
         <br><br>
         <textarea name="caption" placeholder="caption"></textarea>
         <br><br>
         <button class="btn">add new post</button>
     </form>
+
+    <form action="/posts">
+        <button class="btn">cancel</button>
+    </form>
+    <form action="/posts">
+        <button class="btn cancelbtn" onclick="return cancelAdd()">cancel</button>
+    </form>
+
+    <script>
+        function cancelAdd() {
+            return confirm("Do you want to cancel adding new post?");
+        }
+    </script>
 </body>
 </html>
