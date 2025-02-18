@@ -11,7 +11,7 @@
 <body>
     <!-- form for new post -->
     <form method="post" action="/posts/new" enctype="multipart/form-data">
-        <input type="text" placeholder="image file name" name="imagelink">
+        <!-- <input type="text" placeholder="image file name" name="imagelink"> -->
         <input type="file" name="image" accept="image/*" required>
         <br><br>
         <textarea name="caption" placeholder="caption"></textarea>
@@ -19,9 +19,9 @@
         <button class="btn">add new post</button>
     </form>
 
-    <form action="/posts">
+    <!-- <form action="/posts">
         <button class="btn">cancel</button>
-    </form>
+    </form> -->
     <form action="/posts">
         <button class="btn cancelbtn" onclick="return cancelAdd()">cancel</button>
     </form>
